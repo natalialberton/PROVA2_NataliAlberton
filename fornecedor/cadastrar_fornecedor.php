@@ -48,10 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <style>
         /* Ajusta os campos de entrada */
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="tel"],
+        input,
         select {
             width: 80%;
             padding: 8px;
@@ -64,7 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <h2>Cadastrar Fornecedor</h2>
+    <main class="container">
+        <header class="container__titulo">
+            <h2>Cadastrar Fornecedor</h2>
+        </header>
 
     <form action="cadastrar_fornecedor.php" method="POST">
         <label for="nome_fornecedor">Nome do Fornecedor: </label>
@@ -88,7 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="reset">Cancelar</button>
     </form>
 
-    <a href="../principal.php">Voltar</a>
+    <a href="../principal.php" class="btn-voltar">Voltar</a>
+    </main>
 </body>
 
 </html>

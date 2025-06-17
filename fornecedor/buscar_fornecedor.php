@@ -45,21 +45,25 @@ $fornecedores = $stmt-> fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h2>Lista de Fornecedores</h2>
-    <!-- FORMULÁRIO PARA BUSCAR USUÁRIOS -->
-     <form action="buscar_fornecedor.php" method="POST">
-        <label for="busca">Digite o ID ou NOME do fornecedor (opcional)</label>
-        <input type="text" name="busca" id="busca">
-        <button type="submit">Pequisar</button>
-     </form>
+    <main class="container">
+        <header class="container__titulo">
+           <h2>Lista de Fornecedores</h2>
+           <a href="../principal.php" class="btn-voltar">Voltar</a>
+        </header>
+    <!-- FORMULÁRIO PARA BUSCAR FORNECEDORES -->
+    <div class="container__pesquisa">
+        <form action="buscar_fornecedor.php" method="POST" class="container__pesquisa__forms">
+            <div class="form-group">
+                <label for="busca">Digite o ID ou NOME do fornecedor (opcional)</label>
+                <input type="text" name="busca" id="busca">
+            </div>
+            <button type="submit" class="btn-pesquisa">Pequisar</button>
+        </form>
+     </div>
 
+     <div class="container-tabela">
         <?php if(!empty($fornecedores)):?>
-            <div style="
-                display: flex;
-                text-align: center;
-                justify-content: center;
-            ">
-            <table border="1">
+            <table class="container-tabela__tabela">
                 <tr>
                     <th>ID</th>
                     <th>NOME</th>
@@ -78,18 +82,23 @@ $fornecedores = $stmt-> fetchAll(PDO::FETCH_ASSOC);
                         <td><?=htmlspecialchars($fornecedor['email'])?></td>
                         <td><?=htmlspecialchars($fornecedor['contato'])?></td>
                         <td>
-                            <a href="alterar_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>">Alterar</a>
-                            <a href="excluir_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>"
-                            onclick="return confirm('Tem certeza que deseja excluir este fornecedor?')">Excluir</a>
+                            <div class="tabela__btn">
+                                <a href="alterar_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>"
+                                   class="btn-acao btn-edit">Alterar</a>
+                                <a href="excluir_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>"
+                                   class="btn-acao btn-delete" onclick="return confirm('Tem certeza que deseja excluir este fornecedor?')">Excluir</a>
+                            </div>
                         </td>
                     </tr>
                 <?php endforeach;?>
             </table>
-            </div>
         <?php else: ?>
-            <p>Nenhum fornecedor encontrado.</p>
+            <div class="container-tabela__sem-resultado">
+                <div class="container-tabela__sem-resultado__icon">📦</div>
+                <p>Nenhum fornecedor encontrado.</p>
+            </div>
         <?php endif; ?>
-
-    <a href="../principal.php">Voltar</a>
+    </div>
+    </main>
 </body>
 </html>
