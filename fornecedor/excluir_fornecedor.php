@@ -39,38 +39,48 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h2>Excluir Fornecedor</h2>
-
-    <?php if (!empty($fornecedores)): ?>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Telefone</th>
-                <th>Email</th>
-                <th>Contato</th>
-                <th>Ações</th>
-            </tr>
-            <?php foreach ($fornecedores as $fornecedor): ?>
+    <main class="container">
+        <header class="container__titulo">
+            <h2>Excluir Fornecedor</h2>
+        </header>
+        <div class="container-tabela">
+        <?php if (!empty($fornecedores)): ?>
+            <table class="container-tabela__tabela">
                 <tr>
-                    <td><?= htmlspecialchars($fornecedor['id_fornecedor']) ?></td>
-                    <td><?= htmlspecialchars($fornecedor['nome_fornecedor']) ?></td>
-                    <td><?= htmlspecialchars($fornecedor['endereco']) ?></td>
-                    <td><?= htmlspecialchars($fornecedor['telefone']) ?></td>
-                    <td><?= htmlspecialchars($fornecedor['email']) ?></td>
-                    <td><?= htmlspecialchars($fornecedor['contato']) ?></td>
-                    <td>
-                        <a href="excluir_fornecedor.php?id=<?= htmlspecialchars($fornecedor['id_fornecedor']) ?>" 
-                           onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Contato</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </table>
-    <?php else: ?>
-        <p>Nenhum fornecedor encontrado.</p>
-    <?php endif; ?>
-
-    <a href="../principal.php">Voltar</a>
+                <?php foreach ($fornecedores as $fornecedor): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($fornecedor['id_fornecedor']) ?></td>
+                        <td><?= htmlspecialchars($fornecedor['nome_fornecedor']) ?></td>
+                        <td><?= htmlspecialchars($fornecedor['endereco']) ?></td>
+                        <td><?= htmlspecialchars($fornecedor['telefone']) ?></td>
+                        <td><?= htmlspecialchars($fornecedor['email']) ?></td>
+                        <td><?= htmlspecialchars($fornecedor['contato']) ?></td>
+                        <td>
+                            <div class="tabela__btn">
+                                <a href="excluir_fornecedor.php?id=<?= htmlspecialchars($fornecedor['id_fornecedor']) ?>" 
+                                class="btn-acao btn-delete" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else: ?>
+            <div class="container-tabela__sem-resultado">
+                <div class="container-tabela__sem-resultado__icon">📦</div>
+                <p>Nenhum fornecedor encontrado.</p>
+            </div>
+        <?php endif; ?>
+    </div>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
+    </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 </html>

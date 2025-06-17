@@ -45,19 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>CADASTRO DE FORNECEDOR</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../validacoes.js"></script>
-
-    <style>
-        /* Ajusta os campos de entrada */
-        input,
-        select {
-            width: 80%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
@@ -87,9 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Salvar</button>
         <button type="reset">Cancelar</button>
     </form>
-
-    <a href="../principal.php" class="btn-voltar">Voltar</a>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
     </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 
 </html>

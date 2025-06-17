@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conexao.php';
+require '../conexao.php';
 
 // Verifica se o usuário tem permissão de ADM
 if ($_SESSION['perfil'] != 1) {
@@ -39,36 +39,47 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Excluir Usuário</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h2>Excluir Usuário</h2>
+    <main class="container">
+        <header class="container__titulo">
+            <h2>Excluir Usuário</h2>
+        </header>
 
-    <?php if (!empty($usuarios)): ?>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Perfil</th>
-                <th>Ações</th>
-            </tr>
-            <?php foreach ($usuarios as $usuario): ?>
-                <tr>
-                    <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
-                    <td><?= htmlspecialchars($usuario['nome']) ?></td>
-                    <td><?= htmlspecialchars($usuario['email']) ?></td>
-                    <td><?= htmlspecialchars($usuario['id_perfil']) ?></td>
-                    <td>
-                        <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario']) ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    <?php else: ?>
-        <p>Nenhum usuário encontrado.</p>
-    <?php endif; ?>
-
-    <a href="principal.php">Voltar</a>
+        <div class="container-tabela">
+            <?php if (!empty($usuarios)): ?>
+                <table class="container-tabela__tabela">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Perfil</th>
+                        <th>Ações</th>
+                    </tr>
+                    <?php foreach ($usuarios as $usuario): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
+                            <td><?= htmlspecialchars($usuario['nome']) ?></td>
+                            <td><?= htmlspecialchars($usuario['email']) ?></td>
+                            <td><?= htmlspecialchars($usuario['id_perfil']) ?></td>
+                            <td>
+                                <div class="tabela__btn">
+                                    <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario']) ?>"  class="btn-acao btn-delete" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php else: ?>
+                <div class="container-tabela__sem-resultado">
+                    <div class="container-tabela__sem-resultado__icon">🤷‍♀️</div>
+                    <p>Nenhum usuário encontrado.</p>
+                </div>
+            <?php endif; ?>
+    </div>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
+    </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 </html>

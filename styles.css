@@ -1,3 +1,15 @@
+@charset "UTF-8";
+
+:root {
+    --cor-bg: #333;
+    --cor-primaria: #3a3a3a;
+    --cor-secundaria: #fff;
+    --cor-terciaria: #167683;
+    --cor-terciaria-hover: #10515a;
+    --cor-delete: #d9534f;
+    --cor-delete-hover: #c9302c;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,113 +18,194 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.login-container {
+    width: 35vw;
+    margin: auto;
     padding: 20px;
-    color: #333;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+.login-container form {
+    width: 20vw;
+}
+
+.login-container  input, .login-container  button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
     display: flex;
-    align-items: center;
+    text-align: center;
     justify-content: center;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-}
-
-.container__titulo {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: white;
-    padding: 30px;
-    text-align: center;
-    gap: 0.2rem;
-}
-
-.btn-voltar  {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-voltar:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.4);
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ccc;
 }
 
 .container__titulo h2 {
     font-size: 2.2rem;
     font-weight: 600;
+    align-self: center;
+}
+
+.saudacao {
+    text-align: left;
+}
+
+.logout {
+    text-align: right;
+}
+
+.logout button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout button:hover {
+    background-color: #c9302c;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #333;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    background-color: #333;
+}
+
+.menu li:hover > a {
+    background-color: #555;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+
+.dropdown-menu li a {
+    padding: 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+#sugestoes {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 200px;
+}
+
+#sugestoes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sugestoes li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#sugestoes li:hover {
+    background-color: #ddd;
+}
+
+/* Centraliza o formulário na tela */
+form {
+    width: 500px; /* Define uma largura fixa */
+    margin: 50px auto; /* Centraliza na tela */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fundo suave */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro do formulário */
+}
+
+
+/* Ajusta as labels */
+label {
+    display: block; /* Mantém acima do campo */
+    font-weight: bold;
+    margin-bottom: 5px; /* Espaço entre label e campo */
+}
+
+/* Ajusta os botões */
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: #007bff; /* Azul bonito */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Ajusta os campos de entrada */
+input, select {
+    width: 80%; /* Ocupa toda a largura do formulário */
+    padding: 8px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 .container__pesquisa {
     padding: 30px;
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--cor-bg);
 }
 
 .container__pesquisa__forms {
     max-width: 600px;
     margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #374151;
-    font-size: 0.95rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-}
-
-.btn-pesquisa {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
-}
-
-.btn-pesquisa:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(79, 70, 229, 0.3);
 }
 
 .container-tabela {
@@ -123,7 +216,7 @@ body {
 .container-tabela__tabela {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: var(--cor-secundaria);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -131,7 +224,7 @@ body {
 
 .container-tabela__tabela th {
     background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-    color: white;
+    color: var(--cor-secundaria);
     padding: 16px 12px;
     text-align: left;
     font-weight: 600;
@@ -144,12 +237,7 @@ body {
     padding: 14px 12px;
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
-    color: #374151;
-}
-
-.container-tabela__tabela tr:hover {
-    background-color: #f8fafc;
-    transition: background-color 0.2s ease;
+    color: var(--cor-primaria);
 }
 
 .container-tabela__tabela tr:last-child td {
@@ -175,7 +263,7 @@ body {
 
 .btn-edit {
     background: #10b981;
-    color: white;
+    color: var(--cor-secundaria);
 }
 
 .btn-edit:hover {
@@ -184,12 +272,12 @@ body {
 }
 
 .btn-delete {
-    background: #ef4444;
-    color: white;
+    background: var(--cor-delete);
+    color: var(--cor-secundaria);
 }
 
 .btn-delete:hover {
-    background: #dc2626;
+    background: var(--cor-delete-hover);
     transform: translateY(-1px);
 }
 
@@ -205,60 +293,23 @@ body {
     opacity: 0.5;
 }
 
-.container-tabela__sem-resultado h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #374151;
+.btn-voltar  {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--cor-terciaria);
+    color: var(--cor-secundaria);
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s ease;
 }
 
-.container-tabela__sem-resultado p {
-    font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    .container__titulo h2 {
-        font-size: 1.8rem;
-    }
-
-    .container__pesquisa,
-    .container-tabela {
-        padding: 20px;
-    }
-
-    .container-tabela__tabela {
-        font-size: 0.8rem;
-    }
-
-    .container-tabela__tabela th,
-    .container-tabela__tabela td {
-        padding: 10px 8px;
-    }
-
-    .tabela-btn {
-        flex-direction: column;
-    }
-
-    .btn-voltar {
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container__titulo {
-        padding: 20px;
-    }
-
-    .container__titulo h2 {
-        font-size: 1.5rem;
-    }
-
-    .container-tabela__tabela {
-        font-size: 0.75rem;
-    }
+footer {
+    padding: 20px;
+    width: 100%;
+    background-color: var(--cor-terciaria-hover);
+    color: var(--cor-secundaria);
 }

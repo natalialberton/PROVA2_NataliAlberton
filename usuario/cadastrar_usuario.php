@@ -40,30 +40,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h2>Cadastrar Usuário</h2>
+    <main class="container">
+        <header class="container__titulo">
+            <h2>Cadastrar Usuário</h2>
+        </header>
 
-    <form action="cadastrar_usuario.php" method="POST">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" placeholder="Digite seu nome" onkeypress="mascara(this, nomeMasc)" minlength="3" required>
+        <form action="cadastrar_usuario.php" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" onkeypress="mascara(this, nomeMasc)" minlength="3" required>
 
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" placeholder="Digite seu email" required>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Digite seu email" required>
 
-        <label for="senha">Senha: </label>
-        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
 
-        <label for="id_perfil">Perfil: </label>
-        <select name="id_perfil" id="id_perfil">
-            <option value="1">Administrador</option>
-            <option value="2">Secretária</option>
-            <option value="3">Almoxarife</option>
-            <option value="4">Cliente</option>
-        </select>
+            <label for="id_perfil">Perfil: </label>
+            <select name="id_perfil" id="id_perfil">
+                <option value="1">Administrador</option>
+                <option value="2">Secretária</option>
+                <option value="3">Almoxarife</option>
+                <option value="4">Cliente</option>
+            </select>
 
-        <button type="submit">Salvar</button>
-        <button type="reset">Cancelar</button>
-    </form>
+            <button type="submit">Salvar</button>
+            <button type="reset">Cancelar</button>
+        </form>
 
-    <a href="../principal.php">Voltar</a>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
+    </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 </html>

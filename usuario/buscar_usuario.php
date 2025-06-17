@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'conexao.php';
+require_once '../conexao.php';
 
 //VERIFICA SE O USUÁRIO TEM PERMISSÃO; SE É ADMIN (1) OU SECRETARIO (2)
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {
@@ -42,50 +42,58 @@ $usuarios = $stmt-> fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUSCA DE USUÁRIO</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h2>Lista de Usuários</h2>
-    <!-- FORMULÁRIO PARA BUSCAR USUÁRIOS -->
-     <form action="buscar_usuario.php" method="POST">
-        <label for="busca">Digite o ID ou NOME do usuário (opcional)</label>
-        <input type="text" name="busca" id="busca">
-        <button type="submit">Pequisar</button>
-     </form>
+    <main class="container">
+        <header class="container__titulo">
+           <h2>Lista de Usuários</h2>
+        </header>
+        <!-- FORMULÁRIO PARA BUSCAR USUÁRIOS -->
+        <div class="container__pesquisa">
+        <form action="buscar_usuario.php" method="POST" class="container__pesquisa__forms">
+            <label for="busca">Digite o ID ou NOME do usuário (opcional)</label>
+            <input type="text" name="busca" id="busca">
+            <button type="submit" class="btn-pesquisa">Pequisar</button>
+        </form>
 
-        <?php if(!empty($usuarios)):?>
-            <div style="
-                display: flex;
-                text-align: center;
-                justify-content: center;
-            ">
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>NOME</th>
-                    <th>EMAIL</th>
-                    <th>PERFIL</th>
-                    <th>AÇÕES</th>
-                </tr>
-                <?php foreach($usuarios as $usuario): ?>
+        <div class="container-tabela">
+            <?php if(!empty($usuarios)):?>
+                <table class="container-tabela__tabela">
                     <tr>
-                        <td><?=htmlspecialchars($usuario['id_usuario'])?></td>
-                        <td><?=htmlspecialchars($usuario['nome'])?></td>
-                        <td><?=htmlspecialchars($usuario['email'])?></td>
-                        <td><?=htmlspecialchars($usuario['id_perfil'])?></td>
-                        <td>
-                            <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
-                            <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>"
-                            onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
-                        </td>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>EMAIL</th>
+                        <th>PERFIL</th>
+                        <th>AÇÕES</th>
                     </tr>
-                <?php endforeach;?>
-            </table>
-            </div>
-        <?php else: ?>
-            <p>Nenhum usuário encontrado.</p>
-        <?php endif; ?>
+                    <?php foreach($usuarios as $usuario): ?>
+                        <tr>
+                            <td><?=htmlspecialchars($usuario['id_usuario'])?></td>
+                            <td><?=htmlspecialchars($usuario['nome'])?></td>
+                            <td><?=htmlspecialchars($usuario['email'])?></td>
+                            <td><?=htmlspecialchars($usuario['id_perfil'])?></td>
+                            <td>
+                                <div class="tabela__btn">
+                                    <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>"  class="btn-acao btn-edit">Alterar</a>
+                                    <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>"
+                                    class="btn-acao btn-delete" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                </table>
+                </div>
+            <?php else: ?>
+                <div class="container-tabela__sem-resultado">
+                    <div class="container-tabela__sem-resultado__icon">🤷‍♀️</div>
+                    <p>Nenhum usuário encontrado.</p>
+                </div>
+            <?php endif; ?>
+        </div>
 
-    <a href="principal.php">Voltar</a>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
+        <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
+    </main>
 </body>
 </html>

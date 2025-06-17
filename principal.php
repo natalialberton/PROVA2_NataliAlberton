@@ -119,6 +119,7 @@ require_once 'conexao.php';
     <header>
         <div class="saudacao">
             <h2>Bem-vindo, <?php echo $_SESSION["usuario"];?>! Perfil: <?php echo $nome_perfil;?></h2>
+            <h3>Esta página foi desenvolvida por Natalí Alberton Grolli</h3>
         </div>
 
         <div class="logout">

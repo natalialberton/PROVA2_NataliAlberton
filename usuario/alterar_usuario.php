@@ -73,7 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="../scripts.js"></script>
 </head>
 <body>
-    <h2>Alterar Usuário</h2>
+    <main class="container">
+        <header class="container__titulo">
+            <h2>Alterar Usuário</h2>
+        </header>
 
     <!-- Formulário para buscar usuário pelo ID ou Nome -->
     <form action="alterar_usuario.php" method="POST">
@@ -118,6 +121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     <?php endif; ?>
 
-    <a href="../principal.php">Voltar</a>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
+    </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 </html>

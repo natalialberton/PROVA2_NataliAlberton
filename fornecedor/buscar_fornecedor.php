@@ -48,7 +48,6 @@ $fornecedores = $stmt-> fetchAll(PDO::FETCH_ASSOC);
     <main class="container">
         <header class="container__titulo">
            <h2>Lista de Fornecedores</h2>
-           <a href="../principal.php" class="btn-voltar">Voltar</a>
         </header>
     <!-- FORMULÁRIO PARA BUSCAR FORNECEDORES -->
     <div class="container__pesquisa">
@@ -99,6 +98,8 @@ $fornecedores = $stmt-> fetchAll(PDO::FETCH_ASSOC);
             </div>
         <?php endif; ?>
     </div>
+        <a href="../principal.php" class="btn-voltar">Voltar</a>
     </main>
+    <footer> Desenvolvido por Natalí Alberton Grolli - SENAI</footer>
 </body>
 </html>
